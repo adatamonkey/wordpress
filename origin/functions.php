@@ -1,6 +1,7 @@
 <?php
 add_theme_support('menus');
 add_theme_support('title-tag');
+add_theme_support('post-thumbnails');
 
 function wpbeg_title($title)
 {
@@ -15,11 +16,63 @@ add_filter('pre_get_document_title', 'wpbeg_title');
 
 function wpbeg_script()
 {
-  wp_enqueue_style('mplus1p', '//fonts.googleapis.com/earlyaccess/mplus1p.css', array());
-  wp_enqueue_style('Sacramento', '//fonts.googleapis.com/css?family=Sacramento&amp;amp;subset=latin-ext', array());
-  wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', array(), '4.7.0');
-  wp_enqueue_style('normalize', get_template_directory_uri() . '/css/normalize.css', array(), '4.5.0');
   wp_enqueue_style('wpbeg', get_template_directory_uri() . '/css/wpbeg.css', array(), '1.0.0');
   wp_enqueue_style('style', get_template_directory_uri() . '/style.css', array(), '1.0.0');
 }
 add_action('wp_enqueue_scripts', 'wpbeg_script');
+
+function wpbeg_widgets_init()
+{
+  register_sidebar(
+    array(
+      'name'          => 'カテゴリーウィジェット',
+      'id'            => 'category_widget',
+      'description'   => 'カテゴリー用ウィジェットです',
+      'before_widget' => '<div class="widget__categories">',
+      'after_widget'  => '</div>',
+      'before_title'  => '<h2 class="widget__title">',
+      'after_title'   => "</h2>\n",
+    )
+  );
+  register_sidebar(
+    array(
+      'name'          => 'タグウィジェット',
+      'id'            => 'tag_widget',
+      'description'   => 'タグ用ウィジェットです',
+      'before_widget' => '<div class="widget__tags">',
+      'after_widget'  => '</div>',
+      'before_title'  => '<h2 class="widget__title">',
+      'after_title'   => "</h2>\n",
+    )
+  );
+  register_sidebar(
+    array(
+      'name'          => 'アーカイブウィジェット',
+      'id'            => 'archive_widget',
+      'description'   => 'アーカイブ用ウィジェットです',
+      'before_widget' => '<div class="widget__archive">',
+      'after_widget'  => '</div>',
+      'before_title'  => '<h2 class="widget__title">',
+      'after_title'   => "</h2>\n",
+    )
+  );
+}
+add_action('widgets_init', 'wpbeg_widgets_init');
+
+//タグクラウドの出力変更
+function wp_tag_cloud_custom_ex($output)
+{
+  //style属性を取り除く
+  $output = preg_replace('/\s*?style="[^"]+?"/i', '',  $output);
+  //カッコを取り除く
+  // $output = str_replace(' (', '',  $output);
+  // $output = str_replace(')', '',  $output);
+  return $output;
+}
+add_filter('wp_tag_cloud', 'wp_tag_cloud_custom_ex');
+
+function wpbeg_theme_add_editor_styles()
+{
+  add_editor_style(get_template_directory_uri() . "/css/editor.css");
+}
+add_action('admin_init', 'wpbeg_theme_add_editor_styles');
