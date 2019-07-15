@@ -1,6 +1,6 @@
 <?php get_header(); ?>
-<div>
-  <div class="contents">
+<div id="contents">
+  <div class="contents__inner">
     <?php if (have_posts()) : ?>
       <?php while (have_posts()) : ?>
         <?php the_post(); ?>
@@ -19,6 +19,7 @@
       ?><p>表示する記事がありません</p>
     <?php endif; ?>
   </div>
-  <?php get_sidebar(); ?>
 </div>
+<?php get_sidebar(); ?>
+
 <?php get_footer(); ?>

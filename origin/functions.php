@@ -28,10 +28,10 @@ function wpbeg_widgets_init()
       'name'          => 'カテゴリーウィジェット',
       'id'            => 'category_widget',
       'description'   => 'カテゴリー用ウィジェットです',
-      'before_widget' => '<div class="widget__categories">',
+      'before_widget' => '<div class="widget widget__categories">',
       'after_widget'  => '</div>',
-      'before_title'  => '<h2 class="widget__title">',
-      'after_title'   => "</h2>\n",
+      'before_title'  => '<h2 class="widget__title"><a href="/category">',
+      'after_title'   => "</a></h2>\n",
     )
   );
   register_sidebar(
@@ -39,10 +39,10 @@ function wpbeg_widgets_init()
       'name'          => 'タグウィジェット',
       'id'            => 'tag_widget',
       'description'   => 'タグ用ウィジェットです',
-      'before_widget' => '<div class="widget__tags">',
+      'before_widget' => '<div class="widget widget__tags">',
       'after_widget'  => '</div>',
-      'before_title'  => '<h2 class="widget__title">',
-      'after_title'   => "</h2>\n",
+      'before_title'  => '<h2 class="widget__title"><a href="/tag">',
+      'after_title'   => "</a></h2>\n",
     )
   );
   register_sidebar(
@@ -50,10 +50,10 @@ function wpbeg_widgets_init()
       'name'          => 'アーカイブウィジェット',
       'id'            => 'archive_widget',
       'description'   => 'アーカイブ用ウィジェットです',
-      'before_widget' => '<div class="widget__archive">',
+      'before_widget' => '<div class="widget widget__archive">',
       'after_widget'  => '</div>',
-      'before_title'  => '<h2 class="widget__title">',
-      'after_title'   => "</h2>\n",
+      'before_title'  => '<h2 class="widget__title"><a href="/archive">',
+      'after_title'   => "</a></h2>\n",
     )
   );
 }

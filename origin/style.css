@@ -25,10 +25,16 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
   font-weight: inherit;
 }
 html {
-  font-size: 75%;
+  font-size: 16px;
   -webkit-text-size-adjust: none;
   overflow-x: inherit;
   overflow-y: inherit;
+}
+h2{
+  font-size: 1.5em;
+}
+h3{
+  font-size: 1.25em;
 }
 img {
   vertical-align: text-bottom;
@@ -76,6 +82,13 @@ header,article,aside,section,footer,nav,menu,details,hgroup,summary {
 }
 
 
+h2{
+  background-color: #f7f7f7;
+  border-left: solid #a1d6e2 5px;
+  padding: .2em;
+  border-bottom: solid 3px #dadada;
+}
+
 /* -------------------------
 container
 ------------------------- */
@@ -105,6 +118,8 @@ footer{
 /* -------------------------
 header
 ------------------------- */
+header{
+}
 header h1{
   background-color: #ffffff;
   text-align: center;
@@ -134,6 +149,10 @@ body{
   background-color: #e5e5e5;
 }
 #contents{
+}
+.contents__inner{
+  padding: 1em 3em 3em 3em;
+  background-color: #ffffff;
 }
 .post{
   display: flex;
@@ -166,9 +185,6 @@ body{
   width: 650px;
   padding: 15px;
   background-color: #ffffff;
-}
-.post__title{
-  font-size: 2em;
 }
 .meta > *{
   margin-top: .5em;
@@ -217,7 +233,7 @@ sidebar
 .widget{
   width: 90%;
   margin-top: 30px;
-  padding: 1em;
+  padding: .5em 1em 1em 1em;
   background-color: #ffffff;
 
 }
@@ -229,6 +245,7 @@ sidebar
 footer
 ------------------------- */
 footer{
-  background-color: #ffffff;
+  background-color: #000000;
   text-align: center;
+  color: #ffffff;
 }
