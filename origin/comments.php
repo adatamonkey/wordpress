@@ -1,4 +1,4 @@
-<div class="comment">
+<div class="post__comment">
   <?php if (have_comments()) : ?>
     <h2 id="comments" class="comment__ttl">Comment</h2>
     <ul class="comment__list">
